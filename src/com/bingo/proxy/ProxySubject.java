@@ -2,6 +2,8 @@ package com.bingo.proxy;
 
 public class ProxySubject implements Subject{
 	private RealSubject realSubject;
+	//调用次数统计
+	private  int count = 1;
 	@Override
 	public void sailBook() {
 		count();
@@ -9,6 +11,7 @@ public class ProxySubject implements Subject{
 			realSubject = new RealSubject();
 		}
 		realSubject.sailBook();
+		System.out.println("======调用次数"+(count++));
 		status();
 	}
 	
